@@ -45,6 +45,13 @@ public class DbAccessObject {
         return title + "\n"+ subtitle;
     }
 
+    public void createRow(@NotNull Todo todo) {
+        ContentValues mapValues = new ContentValues();
+        mapValues.put(FeedEntry.COLUMN_NAME_TITLE,todo.getTitle());
+        mapValues.put(FeedEntry.COLUMN_NAME_SUBTITLE,todo.getSubTitle());
+        database.insert(FeedEntry.TABLE_NAME,null,mapValues);
+    }
+
     //update
     //delete
 }

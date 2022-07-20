@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         //get the data from the edittexts
         var title = etTitle.text.toString()
         var details = etDetails.text.toString()
+        var todo = Todo(title,details)
         //put the data into db
         dbAccessObject.createRow(title,details)
+        dbAccessObject.createRow(todo)
     }
 }
