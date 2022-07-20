@@ -52,6 +52,11 @@ public class DbAccessObject {
         database.insert(FeedEntry.TABLE_NAME,null,mapValues);
     }
 
+    @NotNull
+    public Cursor getAllRows() {
+        return database.query(FeedEntry.TABLE_NAME,null,null,null,null,null,null);
+    }
+
     //update
     //delete
 }
