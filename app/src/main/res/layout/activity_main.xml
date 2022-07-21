@@ -11,12 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="enter title"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/todolist"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="38dp"
         android:ems="10"
         android:hint="enter details"
         android:inputType="textPersonName"
@@ -37,10 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+
         android:layout_marginTop="35dp"
         android:onClick="dbHandler"
         android:text="commit"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDetails" />
 
@@ -48,11 +46,13 @@
         android:id="@+id/btnQuery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
+        android:layout_marginStart="138dp"
         android:layout_marginTop="29dp"
+        android:layout_marginEnd="141dp"
         android:onClick="dbHandler"
         android:text="query"
-        app:layout_constraintStart_toEndOf="@+id/btnCommit"
+        app:layout_constraintEnd_toEndOf="@+id/btnGet"
+        app:layout_constraintStart_toStartOf="@+id/etDetails"
         app:layout_constraintTop_toBottomOf="@+id/etDetails" />
 
     <TextView
@@ -60,20 +60,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCommit" />
 
     <ListView
         android:id="@+id/todolist"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDbQuery" />
+
+    <Button
+        android:id="@+id/btnPut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="49dp"
+        android:onClick="fireStoreHandler"
+        android:text="put fs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnGet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="33dp"
+        android:onClick="fireStoreHandler"
+        android:text="get fs"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnQuery"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

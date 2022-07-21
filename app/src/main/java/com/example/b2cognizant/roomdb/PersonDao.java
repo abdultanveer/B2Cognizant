@@ -25,4 +25,7 @@ public interface PersonDao {
 
     @Query("SELECT * FROM PERSON WHERE id = :id")
     Person loadPersonById(int id);
+
+    @Query("SELECT * FROM PERSON WHERE name = :name")
+    Person loadPersonByName(String name);
 }

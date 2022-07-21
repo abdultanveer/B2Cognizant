@@ -6,8 +6,11 @@ import com.example.b2cognizant.FeedReaderContract.FeedEntry
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     lateinit var etTitle:EditText
@@ -60,5 +63,57 @@ class MainActivity : AppCompatActivity() {
         //put the data into db
         dbAccessObject.createRow(title,details)
         dbAccessObject.createRow(todo)
+    }
+
+    fun fireStoreHandler(view: View) {
+        when(view.id){
+            R.id.btnPut ->{
+                sendDataFireStore()
+            }
+            R.id.btnGet -> {
+                getDataFireStore()
+            }
+        }
+    }
+
+    private fun getDataFireStore() {
+        val db = Firebase.firestore
+
+        db.collection("users")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                   tvDb.text = "${document.data}"
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
+    }
+
+    private fun sendDataFireStore() {
+        val db = Firebase.firestore
+        var title = etTitle.text.toString()
+        var subtitle = etDetails.text.toString()
+        val user = hashMapOf(
+            "title" to title,
+            "subtitle" to subtitle,
+        )
+
+// Add a new document with a generated ID
+        db.collection("users")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
+
+    }
+
+    companion object{
+        var TAG = MainActivity::class.java.simpleName
     }
 }
