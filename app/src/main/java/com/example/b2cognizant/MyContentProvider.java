@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import com.example.b2cognizant.FeedReaderContract.FeedEntry;
+import com.example.b2cognizant.roomdb.AppDatabase;
 
 
 public class MyContentProvider extends ContentProvider {
@@ -37,7 +38,7 @@ public class MyContentProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        // TODO: Implement this to handle requests to insert a new row.
+       // onSaveButtonClicked
         long rowID = db.insert(FeedEntry.TABLE_NAME, "", values);
         if (rowID > 0) {
             Uri _uri = ContentUris.withAppendedId(CONTENT_URI, rowID);
@@ -49,6 +50,7 @@ public class MyContentProvider extends ContentProvider {
 
     @Override //oncreate preesnt in dbhelper
     public boolean onCreate() {
+       // mDb = AppDatabase.getInstance(getApplicationContext());
         Context context = getContext();
         DbHelper dbHelper = new DbHelper(context);
         db = dbHelper.getWritableDatabase();
@@ -61,6 +63,7 @@ public class MyContentProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
+        //retrieveTasks();
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(FeedEntry.TABLE_NAME);
