@@ -3,12 +3,16 @@ package com.example.b2cognizant
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.b2cognizant.model.Aquarium
 
 //fragment activity contains the implementaion -- appliance
 class FragmentActivity : AppCompatActivity(),FragmentHeadlines.OnHeadlineClickListener{
+
+    lateinit var aquarium:Aquarium
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment)
+        aquarium = Aquarium(application,lifecycle)
     }
 
     override fun onHeadlineClicked(headline: String?, position: Int) {
