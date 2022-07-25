@@ -14,6 +14,20 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentHeadlines extends Fragment implements AdapterView.OnItemClickListener {
     ListView headlinesListView;
+    OnHeadlineClickListener onHeadlineClickListener;//declaration
+
+    //switch board
+    interface  OnHeadlineClickListener{
+       void onHeadlineClicked(String headline, int position);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        onHeadlineClickListener = (OnHeadlineClickListener) getActivity();//wiring = initialization
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,5 +42,6 @@ public class FragmentHeadlines extends Fragment implements AdapterView.OnItemCli
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long rowView) {
         String itemClicked = adapterView.getItemAtPosition(position).toString();
         Toast.makeText(getContext(), itemClicked, Toast.LENGTH_SHORT).show();
+        onHeadlineClickListener.onHeadlineClicked(itemClicked,position);
     }
 }
