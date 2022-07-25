@@ -12,6 +12,10 @@ class FragmentActivity : AppCompatActivity(),FragmentHeadlines.OnHeadlineClickLi
     }
 
     override fun onHeadlineClicked(headline: String?, position: Int) {
-        Toast.makeText(this,headline,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"frag activity--"+headline,Toast.LENGTH_SHORT).show()
+        //check if fragment details is not null then the app is running on a tablet else vice versa
+       var detailsFragment: FragmentDetails =  supportFragmentManager.findFragmentById(R.id.detailsfrag) as FragmentDetails //as = type casting
+        detailsFragment.updateTextview(headline)
+
     }
 }

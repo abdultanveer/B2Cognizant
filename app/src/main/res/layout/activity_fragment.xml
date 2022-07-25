@@ -8,7 +8,8 @@
     tools:context=".FragmentActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+
+        android:id="@+id/headlinesfrag"
         android:name="com.example.b2cognizant.FragmentHeadlines"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/detailsfrag"
         android:name="com.example.b2cognizant.FragmentDetails"
         android:layout_width="0dp"
         android:layout_height="match_parent"

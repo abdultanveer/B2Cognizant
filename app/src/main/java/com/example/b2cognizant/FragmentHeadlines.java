@@ -41,7 +41,7 @@ public class FragmentHeadlines extends Fragment implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long rowView) {
         String itemClicked = adapterView.getItemAtPosition(position).toString();
-        Toast.makeText(getContext(), itemClicked, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), itemClicked, Toast.LENGTH_SHORT).show();
         onHeadlineClickListener.onHeadlineClicked(itemClicked,position);
     }
 }
