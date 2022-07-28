@@ -16,7 +16,7 @@ public class FragmentHeadlines extends Fragment implements AdapterView.OnItemCli
     ListView headlinesListView;
     OnHeadlineClickListener onHeadlineClickListener;//declaration
 
-    //switch board
+    //switch board -- mobile phone
     interface  OnHeadlineClickListener{
        void onHeadlineClicked(String headline, int position);
     }
@@ -24,7 +24,7 @@ public class FragmentHeadlines extends Fragment implements AdapterView.OnItemCli
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onHeadlineClickListener = (OnHeadlineClickListener) getActivity();//wiring = initialization
+        onHeadlineClickListener = (OnHeadlineClickListener) getActivity();//wiring = initialization - handing over the phone
 
     }
 
