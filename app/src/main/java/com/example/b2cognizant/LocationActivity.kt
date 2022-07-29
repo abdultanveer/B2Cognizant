@@ -30,6 +30,8 @@ class LocationActivity : AppCompatActivity() {
 companion object {
     var TAG = LocationActivity::class.java.simpleName
 }
+
+
     @SuppressLint("MissingPermission")
     fun getLocation(view: View) {
         fusedLocationClient.lastLocation  //location service hosted in google play
@@ -37,6 +39,7 @@ companion object {
                 Log.i(TAG,"latitude="+location?.latitude+"--longitude="+location?.longitude)
 
             }
+
     }
 
 
