@@ -43,5 +43,10 @@
         android:layout_alignEnd="@+id/inNumber"
         android:layout_alignRight="@+id/inNumber"
         android:text="GET" />
+    <com.example.b2cognizant.customviews.EditTextWithClear
+        android:layout_width="match_parent"
+        android:hint="this is clearable et"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGet"/>
 
 </RelativeLayout>

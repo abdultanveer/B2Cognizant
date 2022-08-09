@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import com.example.b2cognizant.FeedReaderContract.FeedEntry;
-import com.example.b2cognizant.roomdb.AppDatabase;
 
 
 public class MyContentProvider extends ContentProvider {
