@@ -31,6 +31,7 @@ public class EditTextWithClear extends AppCompatEditText {
 
     public EditTextWithClear(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        //attrs.getAttributeBooleanValue(R.attr.fanOffColor,)
         init();
     }
 

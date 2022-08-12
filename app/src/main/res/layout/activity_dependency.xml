@@ -45,6 +45,8 @@
         android:text="GET" />
     <com.example.b2cognizant.customviews.EditTextWithClear
         android:layout_width="match_parent"
+        app:fanOffColor="@color/material_dynamic_secondary0"
+        app:fanOnColor="@color/design_default_color_primary"
         android:hint="this is clearable et"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnGet"/>

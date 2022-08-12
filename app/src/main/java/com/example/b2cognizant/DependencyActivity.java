@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -49,8 +51,10 @@ public class DependencyActivity extends AppCompatActivity implements View.OnClic
         switch (view.getId()) {
 
             case R.id.btnGet:
-                inUsername.setText(sharedPreferencesByModule.getString("username", "default"));
-                inNumber.setText(sharedPreferencesByModule.getString("number", "12345"));
+                Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+                findViewById(R.id.inUsername).startAnimation(shake);
+                //inUsername.setText(sharedPreferencesByModule.getString("username", "default"));
+                //inNumber.setText(sharedPreferencesByModule.getString("number", "12345"));
                 break;
             case R.id.btnSave:
                 SharedPreferences.Editor editor = sharedPreferencesByModule.edit();
